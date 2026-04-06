@@ -1,0 +1,94 @@
+{
+  "app_name": "Room Reader",
+  "theme": "LIGHT",
+  "archetype": "Archetype 4 (Swiss & High-Contrast)",
+  "design_concept": "Neo-Brutalist Utility / The 'Green Room' Terminal. A high-contrast, zero-distraction interface that feels like a professional toolkit. Uses stark typography and hard borders to prioritize speed and readability under any lighting condition.",
+  "typography": {
+    "rules": [
+      "Banned: Inter, Roboto, Open Sans, Lato.",
+      "Must use tracking-tight for headings.",
+      "Must use tracking-[0.2em] for overlines/labels (uppercase)."
+    ],
+    "fonts": {
+      "heading": "Clash Display",
+      "body": "IBM Plex Mono"
+    },
+    "hierarchy": {
+      "h1": "text-4xl sm:text-5xl lg:text-6xl font-black uppercase tracking-tighter leading-none",
+      "h2": "text-2xl sm:text-3xl font-bold tracking-tight",
+      "h3": "text-xl sm:text-2xl font-semibold",
+      "label": "text-xs font-bold uppercase tracking-[0.15em] text-neutral-600",
+      "body": "text-base leading-relaxed"
+    }
+  },
+  "colors": {
+    "background": "#F4F4F0",
+    "surface": "#FFFFFF",
+    "text": {
+      "primary": "#0D0D0D",
+      "secondary": "#4A4A4A",
+      "inverse": "#F4F4F0"
+    },
+    "brand": {
+      "primary": "#E63946",
+      "accent": "#FFD166"
+    },
+    "borders": "#0D0D0D"
+  },
+  "layout": {
+    "strategy": "Mobile-first, single-column stack. No complex grids needed for a single-screen form. Focus on massive inputs and readable outputs.",
+    "spacing": {
+      "container": "max-w-2xl mx-auto px-4 py-8 sm:py-12",
+      "form_gap": "gap-8",
+      "element_padding": "p-4 sm:p-6"
+    },
+    "surface_styles": {
+      "form_inputs": "bg-white border-2 border-[#0D0D0D] rounded-none p-4 focus:outline-none focus:shadow-[4px_4px_0px_#E63946] shadow-[4px_4px_0px_#0D0D0D] transition-shadow duration-200 text-lg md:text-xl font-bold placeholder:text-neutral-400 placeholder:font-normal w-full",
+      "primary_button": "w-full bg-[#E63946] text-white border-2 border-[#0D0D0D] uppercase font-black tracking-widest text-xl py-6 hover:bg-[#D62828] active:translate-y-[2px] active:translate-x-[2px] transition-all shadow-[6px_6px_0px_#0D0D0D] hover:shadow-[4px_4px_0px_#0D0D0D] active:shadow-[0px_0px_0px_#0D0D0D]",
+      "output_card": "bg-[#0D0D0D] text-[#F4F4F0] border-2 border-[#0D0D0D] rounded-none p-6 sm:p-8 mt-12 shadow-[8px_8px_0px_#E63946]"
+    }
+  },
+  "components": {
+    "select": {
+      "description": "Custom massive dropdown for 'Event Type'. Should feel like picking a mode on a machine. High contrast.",
+      "style": "Uses form_inputs base style. Must have a stark, chunky dropdown arrow icon."
+    },
+    "input": {
+      "description": "Room size input. Large text, numeric keyboard on mobile.",
+      "style": "Uses form_inputs base style."
+    },
+    "textarea": {
+      "description": "Audience context. Auto-resizing or fixed height (e.g., 3 lines).",
+      "style": "Uses form_inputs base style. resize-none."
+    },
+    "output_sections": {
+      "room_energy": "Text block with an energetic icon. Yellow accent text (#FFD166).",
+      "opening_move": "Large, bold font to make the actual script stand out.",
+      "anchor_move": "Boxed out inside the dark card. border-2 border-[#F4F4F0] p-4",
+      "avoid": "Red text color inside the dark theme. text-[#E63946] font-bold"
+    }
+  },
+  "interactions_and_motion": {
+    "hover_states": "Hard brutalist transitions. Shadows shrink and elements translate down-right to simulate physical pressing.",
+    "focus_states": "Inputs gain a colored shadow (Signal Red) or thicker border.",
+    "loading_state": "Replace button text with 'READING THE ROOM...' and a fast, blocky ASCII or CSS loading bar. No soft spinners.",
+    "output_entrance": "Framer motion: `initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.2, ease: 'easeOut' }}`"
+  },
+  "accessibility_and_testing": {
+    "contrast": "Exceeds APCA requirements. Pure black on off-white, white on pure black.",
+    "testing_attributes": "All interactive elements and form fields MUST have `data-testid` (e.g., `data-testid=\"event-type-select\"`, `data-testid=\"generate-strategy-btn\"`, `data-testid=\"strategy-output-card\"`)."
+  },
+  "media": {
+    "icons": "Use Phosphor Icons (Bold or Fill weight) to match the heavy Brutalist typography.",
+    "images": []
+  },
+  "instructions_to_main_agent": [
+    "Do NOT use standard Shadcn rounded cards. Override all border-radius to 0 (`rounded-none`).",
+    "Implement a strict Neo-Brutalist UI: 2px solid black borders and solid hard drop shadows (e.g., `shadow-[4px_4px_0px_rgba(0,0,0,1)]`).",
+    "The application is a single screen. Do not build complex navigation.",
+    "Use pure HTML+Tailwind for the layout structure, inject Framer Motion for snappy interactions.",
+    "Ensure the generated strategy is instantly readable. The transition from Form to Strategy must be seamless, maybe pushing the form up or scrolling down automatically to the result.",
+    "All forms must have accessible labels. Use uppercase, wide-tracking styling for labels.",
+    "Do not use generic placeholder text. Use context-specific placeholders (e.g., 'e.g., 500-person theater' for room size)."
+  ]
+}
