@@ -36,9 +36,9 @@ class StatusCheckCreate(BaseModel):
     client_name: str
 
 class StrategyRequest(BaseModel):
-    event_type: str
-    room_size: str
-    audience_context: str
+    event_type: str = Field(..., min_length=1)
+    room_size: str = Field(..., min_length=1)
+    audience_context: str = Field(..., min_length=1)
 
 class StrategyResponse(BaseModel):
     room_energy: str
