@@ -83,3 +83,6 @@ android-sdk/-e
 # Environment files
 *.env
 *.env.*
+
+# graphify-generated knowledge graph (local only)
+graphify-out/
